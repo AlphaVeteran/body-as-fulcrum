@@ -1,3 +1,12 @@
 theme: jekyll-theme-Architect
 title: [身体作为支点]
 description: [拒绝空洞的符号知识，回归具身的真实实践]
+favicon: /favicon.ico
+
+# 1. 声明启用分页插件
+plugins:
+  - jekyll-paginate
+
+# 2. 分页核心参数设置
+paginate: 2                     # 每页显示的文章条数
+paginate_path: "/page:num/"      # 分页后的 URL 路径格式（例如第二页为 /page2/）
