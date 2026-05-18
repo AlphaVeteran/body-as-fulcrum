@@ -1,7 +1,4 @@
 source "https://rubygems.org"
 
-# 使用和 GitHub Pages 完全一致的依赖环境
-gem "github-pages", group: :jekyll_plugins
-
-# 强制注入分页插件
-gem "jekyll-paginate"
+# 让全局依赖完全由 github-pages 接管，它内部已经锁定了最兼容的分页版本
+gem "github-pages", "~> 231", group: :jekyll_plugins
