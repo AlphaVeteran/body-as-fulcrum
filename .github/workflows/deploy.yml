@@ -21,19 +21,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: jekyll/setup-jekyll@v1
-        with:
-          ruby-version: '2.7' # 使用与 github-pages 依赖最契合的稳定 Ruby 版本
-          bundler-cache: true
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --destination ./_site
-        env:
-          JEKYLL_ENV: production
+      - name: Build with Jekyll (Docker Container Mode)
+        # 💡 核心大招：使用包含全套官方标准插件的内置容器进行编译，彻底摆脱本地 Gemfile 依赖地狱
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
