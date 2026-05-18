@@ -1,6 +1,7 @@
 ---
 layout: default
-title: 首页
+title: "首页"
+paginate: true
 ---
 
 # ⚓ 身体作为支点
