@@ -3,7 +3,7 @@ layout: default
 title: 用jekyll添加分页功能
 date: 2026-05-18
 ---
-给https://alphaveteran.github.io/body-as-fulcrum/添加分页功能，要花去这么长时间，折腾半天了。
+给  https://alphaveteran.github.io/body-as-fulcrum/  添加分页功能，要花去这么长时间，折腾半天了。
 
 新增.github/workflows/deploy.yml
 修改_config.yml
