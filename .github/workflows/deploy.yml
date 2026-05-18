@@ -24,14 +24,13 @@ jobs:
       - name: Setup Ruby
         uses: jekyll/setup-jekyll@v1
         with:
-          ruby-version: '3.1'
-          bundler-cache: true # 开启缓存，让以后每次发布都在几秒内闪电完成
+          ruby-version: '2.7' # 使用与 github-pages 依赖最契合的稳定 Ruby 版本
+          bundler-cache: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        # 使用 bundle exec 强行带上 Gemfile 里的插件环境进行编译
         run: bundle exec jekyll build --destination ./_site
         env:
           JEKYLL_ENV: production
