@@ -1,8 +1,7 @@
 ---
 layout: default
-title: " DeepSeek给的一年计划"
-date:
-  "{ date:YYYY-MM-DD }":
+title: "DeepSeek给的一年计划"
+date: 2026-05-18
 ---
 能把时间维度拉长到一年，说明你真的想把这件事做成。一年的时间足够完成“从理论到有纪律地实盘”的转化，但前提是路径不能偏。
 

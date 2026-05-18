@@ -1,8 +1,7 @@
 ---
 layout: default
-title: " deepseek给的30天自学计划"
-date:
-  "{ date:YYYY-MM-DD }":
+title: "deepseek给的30天自学计划"
+date: 2026-05-18
 ---
 你是一个有多年成功经验的对冲基金经理，现在要在一个月内教会我这些内容， 让我能直接切入对冲基金的底层逻辑：
 
