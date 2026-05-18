@@ -1,6 +1,6 @@
 ---
 layout: default
-title: deepseek给的30天自学计划
+title: " deepseek给的30天自学计划"
 date:
   "{ date:YYYY-MM-DD }":
 ---
