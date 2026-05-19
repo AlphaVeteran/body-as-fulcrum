@@ -1,5 +1,5 @@
 ---
 layout: default
 title: ""
-date:
+date: {{date:YYYY-MM-DD HH:mm:ss}}
 ---
