@@ -24,7 +24,44 @@
 5. `title` 可省略（默认用文件名）；`layout` 不必写（`_config.yml` 已自动指定）
 6. 同步到 GitHub 的 `main` 分支
 
-若装了 **Templater** 插件，可在 `fulcrum/` 文件夹设置「文件夹模板」，新文件/移入该文件夹时自动插入前置元数据。
+### 方式 C：Templater 文件夹模板（拷贝后自动加头）
+
+**前提：** 安装社区插件 [Templater](https://github.com/SilentVoid13/Templater)，并启用。
+
+#### 1. 基础设置
+
+| 设置项 | 值 |
+|--------|-----|
+| Template folder location | `_templates` |
+| Trigger Templater on new file creation | **开启** |
+| Enable Folder Templates | **开启** |
+
+#### 2. 绑定 `fulcrum/` 文件夹
+
+在 **Folder Templates** 里点 **Add new**，填：
+
+| 字段 | 值 |
+|------|-----|
+| Folder | `fulcrum`（若 vault 根就是本仓库，只写文件夹名即可） |
+| Template | `Fulcrum前置元数据-Templater` |
+
+保存后，在 Obsidian **文件列表**里于 `fulcrum/` 下**新建**笔记，或把仓库内笔记**拖进** `fulcrum/`，文首会自动插入 YAML（已有 `permalink` 的会跳过，见模板内判断）。
+
+#### 3. 从 Finder 拷贝 md 时
+
+Obsidian 已打开该仓库时，把 `.md` 拷进 `fulcrum/` 后：
+
+1. 在 Obsidian 左侧点一下该新文件（让 Obsidian 完成索引）
+2. 若未自动插入：打开文件 → `Cmd+P` → **Templater: Replace templates in the active file**（或你绑定的快捷键）
+
+更稳的做法：先在 Obsidian 里 `fulcrum/` 下新建空笔记（会自动带头）→ 再把正文粘贴进去。
+
+#### 4. 与「核心插件 · 模板」的关系
+
+- **Templater 文件夹模板**：负责 `fulcrum/` 自动加头 → 用 `Fulcrum前置元数据-Templater.md`
+- **核心模板 · 插入模板**：手动插入 → 仍用 `Fulcrum前置元数据.md`（`{{date}}` 语法）
+
+两套可并存，不要给「默认模板」指定 Fulcrum。
 
 ## 两个 Fulcrum 模板会冲突吗？
 
