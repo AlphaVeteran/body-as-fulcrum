@@ -1,0 +1,32 @@
+<aside class="fulcrum-sidebar" id="fulcrum-sidebar">
+  <div class="fulcrum-brand">
+    <a href="{{ '/fulcrum/' | relative_url }}" class="fulcrum-brand-link">
+      <span class="fulcrum-brand-icon">⚓</span>
+      <span class="fulcrum-brand-text">Fulcrum</span>
+      <span class="fulcrum-brand-sub">支点随笔</span>
+    </a>
+    <a href="{{ '/' | relative_url }}" class="fulcrum-back-root">← 主站目录</a>
+  </div>
+
+  <div class="fulcrum-search-box">
+    <label for="fulcrum-search-input">搜索</label>
+    <input
+      type="search"
+      id="fulcrum-search-input"
+      placeholder="标题、标签或正文…"
+      autocomplete="off"
+    />
+    <ul id="fulcrum-search-results" class="fulcrum-search-results" hidden></ul>
+  </div>
+
+  <div class="fulcrum-tags-box">
+    <h3 class="fulcrum-sidebar-heading">关键词</h3>
+    <div id="fulcrum-tag-cloud" class="fulcrum-tag-cloud"></div>
+    <button type="button" id="fulcrum-tag-clear" class="fulcrum-tag-clear" hidden>清除筛选</button>
+  </div>
+
+  <div class="fulcrum-recent-box">
+    <h3 class="fulcrum-sidebar-heading">最近更新</h3>
+    <ul class="fulcrum-recent-list" id="fulcrum-recent-list"></ul>
+  </div>
+</aside>

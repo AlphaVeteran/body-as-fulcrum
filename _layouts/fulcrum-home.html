@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fulcrum · 支点随笔</title>
+  <meta name="description" content="{{ site.description | strip }}">
+  <link rel="stylesheet" href="{{ '/assets/css/fulcrum.css' | relative_url }}">
+  <link rel="icon" href="{{ site.favicon | default: '/favicon.ico' | relative_url }}">
+</head>
+<body class="fulcrum-body">
+  <div class="fulcrum-shell">
+    {% include fulcrum-sidebar.html %}
+    <main class="fulcrum-main">
+      <header class="fulcrum-home-header">
+        <h1>支点随笔</h1>
+        <p>在 Obsidian 的 <code>fulcrum/</code> 目录写作，推送到 GitHub 后可在浏览器阅读全文。</p>
+      </header>
+      <ul id="fulcrum-archive" class="fulcrum-archive"></ul>
+      <nav class="fulcrum-pagination" id="fulcrum-pagination" aria-label="分页">
+        <button type="button" id="fulcrum-prev">« 上一页</button>
+        <span class="fulcrum-page-info" id="fulcrum-page-info"></span>
+        <button type="button" id="fulcrum-next">下一页 »</button>
+      </nav>
+      {{ content }}
+    </main>
+  </div>
+  <button type="button" class="fulcrum-toggle-sidebar" id="fulcrum-toggle-sidebar" aria-label="切换侧边栏">菜单</button>
+  {% include fulcrum-data.html %}
+  <script src="{{ '/assets/js/fulcrum.js' | relative_url }}"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var tag = params.get("tag");
+      if (!tag) return;
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          var btn = document.querySelector('.fulcrum-tag[data-tag="' + CSS.escape(tag) + '"]');
+          if (btn) btn.click();
+        }, 0);
+      });
+    })();
+  </script>
+</body>
+</html>

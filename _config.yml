@@ -8,5 +8,18 @@ plugins:
   - jekyll-paginate
 
 # 2. 分页核心参数设置
-paginate: 20                     # 每页显示的文章条数
-paginate_path: "/page:num/"      # 分页后的 URL 路径格式（例如第二页为 /page2/）
+paginate: 20
+paginate_path: "/page:num/"
+
+# Fulcrum 子目录博文（Obsidian → GitHub Pages）
+defaults:
+  - scope:
+      path: "fulcrum"
+      type: "pages"
+    values:
+      layout: "fulcrum-post"
+  - scope:
+      path: "fulcrum/index.html"
+      type: "pages"
+    values:
+      layout: "fulcrum-home"

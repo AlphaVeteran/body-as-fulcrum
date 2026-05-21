@@ -1,0 +1,467 @@
+/* Fulcrum — Hexo-style blog for Obsidian notes */
+:root {
+  --fulcrum-bg: #faf9f7;
+  --fulcrum-surface: #ffffff;
+  --fulcrum-text: #2c2c2c;
+  --fulcrum-muted: #6b6b6b;
+  --fulcrum-accent: #3d6b8e;
+  --fulcrum-accent-soft: #e8f0f6;
+  --fulcrum-border: #e4e2de;
+  --fulcrum-sidebar-w: 280px;
+  --fulcrum-font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --fulcrum-mono: "SF Mono", "Menlo", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.fulcrum-body {
+  margin: 0;
+  font-family: var(--fulcrum-font);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--fulcrum-text);
+  background: var(--fulcrum-bg);
+}
+
+.fulcrum-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.fulcrum-sidebar {
+  width: var(--fulcrum-sidebar-w);
+  flex-shrink: 0;
+  background: var(--fulcrum-surface);
+  border-right: 1px solid var(--fulcrum-border);
+  padding: 1.5rem 1.25rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.fulcrum-brand-link {
+  display: block;
+  text-decoration: none;
+  color: var(--fulcrum-text);
+  margin-bottom: 0.5rem;
+}
+
+.fulcrum-brand-icon {
+  font-size: 1.5rem;
+}
+
+.fulcrum-brand-text {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.fulcrum-brand-sub {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--fulcrum-muted);
+}
+
+.fulcrum-back-root {
+  font-size: 0.8rem;
+  color: var(--fulcrum-accent);
+  text-decoration: none;
+}
+
+.fulcrum-back-root:hover {
+  text-decoration: underline;
+}
+
+.fulcrum-search-box {
+  margin: 1.5rem 0 1.25rem;
+}
+
+.fulcrum-search-box label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fulcrum-muted);
+  margin-bottom: 0.4rem;
+}
+
+#fulcrum-search-input {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--fulcrum-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: var(--fulcrum-bg);
+}
+
+#fulcrum-search-input:focus {
+  outline: 2px solid var(--fulcrum-accent-soft);
+  border-color: var(--fulcrum-accent);
+}
+
+.fulcrum-search-results {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--fulcrum-border);
+  border-radius: 6px;
+  background: var(--fulcrum-surface);
+}
+
+.fulcrum-search-results li a {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.82rem;
+  color: var(--fulcrum-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--fulcrum-border);
+}
+
+.fulcrum-search-results li:last-child a {
+  border-bottom: none;
+}
+
+.fulcrum-search-results li a:hover {
+  background: var(--fulcrum-accent-soft);
+}
+
+.fulcrum-sidebar-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fulcrum-muted);
+  margin: 0 0 0.6rem;
+}
+
+.fulcrum-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fulcrum-tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: var(--fulcrum-accent-soft);
+  color: var(--fulcrum-accent);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.fulcrum-tag:hover,
+.fulcrum-tag.active {
+  background: var(--fulcrum-accent);
+  color: #fff;
+}
+
+.fulcrum-tag-clear {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--fulcrum-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.fulcrum-recent-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fulcrum-recent-list li {
+  margin-bottom: 0.35rem;
+}
+
+.fulcrum-recent-list a {
+  font-size: 0.82rem;
+  color: var(--fulcrum-text);
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+}
+
+.fulcrum-recent-list a:hover {
+  color: var(--fulcrum-accent);
+}
+
+.fulcrum-main {
+  flex: 1;
+  min-width: 0;
+  padding: 2rem 2.5rem 3rem;
+  max-width: 780px;
+}
+
+.fulcrum-home-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.fulcrum-home-header p {
+  margin: 0 0 2rem;
+  color: var(--fulcrum-muted);
+  font-size: 0.95rem;
+}
+
+.fulcrum-archive {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fulcrum-archive-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--fulcrum-border);
+}
+
+.fulcrum-archive-item:first-child {
+  padding-top: 0;
+}
+
+.fulcrum-archive-meta {
+  font-size: 0.8rem;
+  color: var(--fulcrum-muted);
+  margin-bottom: 0.35rem;
+}
+
+.fulcrum-archive-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.fulcrum-archive-title a {
+  color: var(--fulcrum-text);
+  text-decoration: none;
+}
+
+.fulcrum-archive-title a:hover {
+  color: var(--fulcrum-accent);
+}
+
+.fulcrum-archive-excerpt {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  color: var(--fulcrum-muted);
+  line-height: 1.6;
+}
+
+.fulcrum-read-more {
+  font-size: 0.85rem;
+  color: var(--fulcrum-accent);
+  text-decoration: none;
+}
+
+.fulcrum-read-more:hover {
+  text-decoration: underline;
+}
+
+.fulcrum-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.fulcrum-item-tag {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  background: var(--fulcrum-bg);
+  color: var(--fulcrum-muted);
+}
+
+.fulcrum-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.fulcrum-pagination button {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--fulcrum-border);
+  border-radius: 6px;
+  background: var(--fulcrum-surface);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.fulcrum-pagination button:hover:not(:disabled) {
+  border-color: var(--fulcrum-accent);
+  color: var(--fulcrum-accent);
+}
+
+.fulcrum-pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.fulcrum-page-info {
+  font-size: 0.88rem;
+  color: var(--fulcrum-muted);
+}
+
+/* Article */
+.fulcrum-article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--fulcrum-border);
+}
+
+.fulcrum-article-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.85rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.fulcrum-article-meta {
+  font-size: 0.88rem;
+  color: var(--fulcrum-muted);
+}
+
+.fulcrum-article-tags {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fulcrum-article-tags a {
+  font-size: 0.78rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--fulcrum-accent-soft);
+  color: var(--fulcrum-accent);
+  text-decoration: none;
+}
+
+.fulcrum-article-tags a:hover {
+  background: var(--fulcrum-accent);
+  color: #fff;
+}
+
+.fulcrum-content {
+  font-size: 1.05rem;
+}
+
+.fulcrum-content h2,
+.fulcrum-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.fulcrum-content p {
+  margin: 0 0 1.1rem;
+}
+
+.fulcrum-content blockquote {
+  margin: 1.25rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--fulcrum-accent);
+  color: var(--fulcrum-muted);
+  background: var(--fulcrum-surface);
+}
+
+.fulcrum-content code {
+  font-family: var(--fulcrum-mono);
+  font-size: 0.88em;
+  background: var(--fulcrum-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.fulcrum-content pre {
+  overflow-x: auto;
+  padding: 1rem;
+  background: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.fulcrum-nav-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--fulcrum-border);
+}
+
+.fulcrum-nav-footer a {
+  color: var(--fulcrum-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.fulcrum-nav-footer a:hover {
+  text-decoration: underline;
+}
+
+.fulcrum-empty {
+  color: var(--fulcrum-muted);
+  font-style: italic;
+}
+
+.fulcrum-toggle-sidebar {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: var(--fulcrum-accent);
+  color: #fff;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+  .fulcrum-shell {
+    flex-direction: column;
+  }
+
+  .fulcrum-sidebar {
+    width: 100%;
+    max-height: none;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--fulcrum-border);
+  }
+
+  .fulcrum-main {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  .fulcrum-toggle-sidebar {
+    display: block;
+  }
+
+  .fulcrum-sidebar.collapsed {
+    display: none;
+  }
+}

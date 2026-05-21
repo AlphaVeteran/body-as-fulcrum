@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% assign page_title = page.title %}
+  {% if page_title == nil or page_title == '' %}
+    {% assign page_title = page.path | split: '/' | last | replace: '.md', '' | replace: '.html', '' %}
+  {% endif %}
+  <title>{{ page_title }} · Fulcrum</title>
+  <meta name="description" content="{{ site.description | strip }}">
+  <link rel="stylesheet" href="{{ '/assets/css/fulcrum.css' | relative_url }}">
+  <link rel="icon" href="{{ site.favicon | default: '/favicon.ico' | relative_url }}">
+</head>
+<body class="fulcrum-body">
+  <div class="fulcrum-shell">
+    {% include fulcrum-sidebar.html %}
+    <main class="fulcrum-main">
+      <article class="fulcrum-article">
+        <header class="fulcrum-article-header">
+          <h1>{{ page_title }}</h1>
+          <div class="fulcrum-article-meta">
+            {% if page.date %}
+              <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time>
+            {% endif %}
+          </div>
+          {% assign article_tags = page.tags | default: page.keywords %}
+          {% if article_tags.size > 0 %}
+            <div class="fulcrum-article-tags">
+              {% for tag in article_tags %}
+                <a href="{{ '/fulcrum/' | relative_url }}?tag={{ tag | uri_escape }}">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </header>
+        <div class="fulcrum-content">
+          {{ content }}
+        </div>
+        <footer class="fulcrum-nav-footer">
+          <a href="{{ '/fulcrum/' | relative_url }}">← 返回文章列表</a>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <button type="button" class="fulcrum-toggle-sidebar" id="fulcrum-toggle-sidebar" aria-label="切换侧边栏">菜单</button>
+  {% include fulcrum-data.html %}
+  <script src="{{ '/assets/js/fulcrum.js' | relative_url }}"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var tag = params.get("tag");
+      if (tag && document.getElementById("fulcrum-tag-cloud")) {
+        document.addEventListener("DOMContentLoaded", function () {
+          var btn = document.querySelector('.fulcrum-tag[data-tag="' + CSS.escape(tag) + '"]');
+          if (btn) btn.click();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
