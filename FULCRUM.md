@@ -6,7 +6,25 @@
 
 1. 在 Obsidian 设置 → **核心插件** 中启用 **模板**
 2. 将模板文件夹设为仓库内的 `_templates`
-3. 新建笔记时选择 **Fulcrum博文模板**，保存到 `fulcrum/` 目录
+3. 建议为「插入模板」设快捷键（设置 → 快捷键 → 搜索 `Insert template`）
+
+### 方式 A：新建笔记
+
+用 **Fulcrum博文模板** 新建，保存到 `fulcrum/`。
+
+### 方式 B：拷贝已有 md（你的习惯）
+
+1. 把写好的 `.md` **拷贝到** `fulcrum/`
+2. 在 Obsidian 中打开该文件，光标放在**全文最开头**
+3. `Cmd+P` → **插入模板**（Insert template）→ 选 **Fulcrum前置元数据**
+4. 改三处：
+   - `permalink`：英文路径，如 `/fulcrum/my-new-post/`（**必填**，部署用）
+   - `date`：写作日期
+   - `tags`：关键词
+5. `title` 可省略（默认用文件名）；`layout` 不必写（`_config.yml` 已自动指定）
+6. 同步到 GitHub 的 `main` 分支
+
+若装了 **Templater** 插件，可在 `fulcrum/` 文件夹设置「文件夹模板」，新文件/移入该文件夹时自动插入前置元数据。
 
 ## Front matter 字段
 
