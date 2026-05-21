@@ -30,3 +30,22 @@
     <ul class="fulcrum-recent-list" id="fulcrum-recent-list"></ul>
   </div>
 </aside>
+{% assign fulcrum_posts = site.pages | where_exp: "p", "p.path contains 'fulcrum/' and p.path != 'fulcrum/index.html'" %}
+{% assign fulcrum_posts = fulcrum_posts | sort: "date" | reverse %}
+<ul id="fulcrum-entries-source" hidden aria-hidden="true">
+{% for post in fulcrum_posts %}
+  {% assign post_title = post.title %}
+  {% if post_title == nil or post_title == '' %}
+    {% assign post_title = post.path | split: '/' | last | replace: '.md', '' | replace: '.html', '' %}
+  {% endif %}
+  {% assign post_tags = post.tags | default: post.keywords %}
+  {% assign post_excerpt = post.excerpt | default: '' | strip_html | truncate: 280, '' %}
+  <li
+    data-title="{{ post_title | xml_escape }}"
+    data-url="{{ post.url | relative_url | xml_escape }}"
+    data-date="{{ post.date | date: '%Y-%m-%d' | xml_escape }}"
+    data-tags="{% if post_tags %}{{ post_tags | join: ',' | xml_escape }}{% endif %}"
+    data-excerpt="{{ post_excerpt | xml_escape }}"
+  ></li>
+{% endfor %}
+</ul>

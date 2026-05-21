@@ -13,6 +13,7 @@
 | 字段 | 说明 |
 |------|------|
 | `title` | 标题（可省略，使用文件名） |
+| `permalink` | 英文 URL，如 `/fulcrum/my-post/`（部署必需） |
 | `date` | `YYYY-MM-DD`，用于排序与显示 |
 | `tags` / `keywords` | 关键词数组，出现在侧边栏标签云 |
 

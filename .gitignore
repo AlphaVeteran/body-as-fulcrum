@@ -6,3 +6,7 @@
 
 # 3. 屏蔽 iCloud 云盘未下载完成的同步占位符
 *.icloud
+
+# local Jekyll gem install
+.gem-local/
+_site-test/

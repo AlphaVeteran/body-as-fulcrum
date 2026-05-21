@@ -5,13 +5,18 @@
   var posts = [];
 
   function loadPosts() {
-    var el = document.getElementById("fulcrum-posts-data");
-    if (!el) return [];
-    try {
-      return JSON.parse(el.textContent);
-    } catch (e) {
-      return [];
-    }
+    var source = document.getElementById("fulcrum-entries-source");
+    if (!source) return [];
+    return Array.prototype.map.call(source.querySelectorAll("li"), function (li) {
+      var tags = (li.getAttribute("data-tags") || "").split(",").filter(Boolean);
+      return {
+        title: li.getAttribute("data-title") || "",
+        url: li.getAttribute("data-url") || "",
+        date: li.getAttribute("data-date") || "",
+        tags: tags,
+        excerpt: li.getAttribute("data-excerpt") || "",
+      };
+    });
   }
 
   function normalizeTags(tags) {
