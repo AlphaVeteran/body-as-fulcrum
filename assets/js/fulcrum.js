@@ -256,7 +256,11 @@
   initSearch();
   initSidebarToggle();
 
-  if (document.getElementById("fulcrum-archive")) {
+  var archive = document.getElementById("fulcrum-archive");
+  if (archive && !archive.querySelector(".fulcrum-archive-item")) {
     renderArchive("", 1);
+  } else if (archive && archive.querySelector(".fulcrum-archive-item")) {
+    var pagination = document.getElementById("fulcrum-pagination");
+    if (pagination) pagination.hidden = true;
   }
 })();

@@ -24,10 +24,9 @@
               <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time>
             {% endif %}
           </div>
-          {% assign article_tags = page.tags | default: page.keywords %}
-          {% if article_tags.size > 0 %}
+          {% if page.tags and page.tags.size > 0 %}
             <div class="fulcrum-article-tags">
-              {% for tag in article_tags %}
+              {% for tag in page.tags %}
                 <a href="{{ '/fulcrum/' | relative_url }}?tag={{ tag | uri_escape }}">{{ tag }}</a>
               {% endfor %}
             </div>
@@ -43,18 +42,10 @@
     </main>
   </div>
   <button type="button" class="fulcrum-toggle-sidebar" id="fulcrum-toggle-sidebar" aria-label="切换侧边栏">菜单</button>
-  <script src="{{ '/assets/js/fulcrum.js' | relative_url }}"></script>
   <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var tag = params.get("tag");
-      if (tag && document.getElementById("fulcrum-tag-cloud")) {
-        document.addEventListener("DOMContentLoaded", function () {
-          var btn = document.querySelector('.fulcrum-tag[data-tag="' + CSS.escape(tag) + '"]');
-          if (btn) btn.click();
-        });
-      }
-    })();
+    document.getElementById("fulcrum-toggle-sidebar").addEventListener("click", function () {
+      document.getElementById("fulcrum-sidebar").classList.toggle("collapsed");
+    });
   </script>
 </body>
 </html>
