@@ -8,7 +8,7 @@
     {% assign page_title = page.path | split: '/' | last | replace: '.md', '' | replace: '.html', '' %}
   {% endif %}
   <title>{{ page_title }} · Fulcrum</title>
-  <meta name="description" content="{{ site.description | strip }}">
+  <meta name="description" content="{{ site.description | escape }}">
   <link rel="stylesheet" href="{{ '/assets/css/fulcrum.css' | relative_url }}">
   <link rel="icon" href="{{ site.favicon | default: '/favicon.ico' | relative_url }}">
 </head>

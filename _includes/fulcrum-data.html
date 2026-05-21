@@ -9,8 +9,7 @@
   {% endif %}
   {% assign post_tags = post.tags | default: post.keywords | default: '' %}
   {% assign post_date = post.date | date: '%Y-%m-%d' %}
-  {% assign raw_content = post.content | strip_html | strip_newlines | replace: '  ', ' ' | replace: '  ', ' ' %}
-  {% assign excerpt = raw_content | truncate: 280, '' %}
+  {% assign excerpt = post.content | strip_html | truncate: 280, '' %}
   {
     "title": {{ post_title | jsonify }},
     "url": {{ post.url | relative_url | jsonify }},
