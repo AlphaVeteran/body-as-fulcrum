@@ -97,7 +97,7 @@ Obsidian 已打开该仓库时，把 `.md` 拷进 `fulcrum/` 后：
 ## 在线地址
 
 - 博客首页：<https://alphaveteran.github.io/body-as-fulcrum/fulcrum/>
-- 主站（`_posts`）：<https://alphaveteran.github.io/body-as-fulcrum/>
+- dev2hedge 主站（原 `_posts`）：<https://alphaveteran.github.io/dev2hedge/>
 
 推送到 `main` 分支后，GitHub Actions 会自动部署。
 

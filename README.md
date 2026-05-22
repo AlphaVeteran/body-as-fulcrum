@@ -1,7 +1,17 @@
+# body-as-fulcrum
+
+**身体作为支点** — Fulcrum 随笔（Obsidian → GitHub Pages）。
+
 ## 在线地址
 
-- 主站（dev2hedge)：<https://alphaveteran.github.io/body-as-fulcrum/>
-- 博客首页 (身体作为支点) ：<https://alphaveteran.github.io/body-as-fulcrum/fulcrum/>
+- 博客首页：<https://alphaveteran.github.io/body-as-fulcrum/fulcrum/>
+- 站点根（Fulcrum 首页）：<https://alphaveteran.github.io/body-as-fulcrum/>
 
-本地Obsidian为内容源头，通过git插件同步到github
-推送到 `main` 分支后，GitHub Actions 会自动部署。
+## 工作流
+
+1. 在 Obsidian 打开本目录；在 `fulcrum/` 写作（见 [FULCRUM.md](FULCRUM.md)）
+2. 推送到 `main` 后 GitHub Actions 自动部署
+
+## 关联项目
+
+- **dev2hedge**（量化 / 对冲 / AI 主站）：<https://github.com/AlphaVeteran/dev2hedge> → <https://alphaveteran.github.io/dev2hedge/>

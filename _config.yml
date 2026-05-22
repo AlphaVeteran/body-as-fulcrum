@@ -1,18 +1,12 @@
 theme: jekyll-theme-Architect
 encoding: utf-8
-title: 一个人的对冲基金
-description: AI为个体赋能
+title: 身体作为支点
+description: 在 Obsidian 写作，推送到 GitHub 后可在浏览器阅读
 favicon: /favicon.ico
 
-# 1. 声明启用分页插件
-plugins:
-  - jekyll-paginate
+url: https://alphaveteran.github.io
+baseurl: /body-as-fulcrum
 
-# 2. 分页核心参数设置
-paginate: 20
-paginate_path: "/page:num/"
-
-# Fulcrum 子目录博文（Obsidian → GitHub Pages）
 defaults:
   - scope:
       path: "fulcrum"
