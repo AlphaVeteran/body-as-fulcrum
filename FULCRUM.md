@@ -8,6 +8,21 @@
 2. 将模板文件夹设为仓库内的 `_templates`
 3. 建议为「插入模板」设快捷键（设置 → 快捷键 → 搜索 `Insert template`）
 
+### Obsidian Git（已预配置，见 `.obsidian/plugins/obsidian-git/data.json`）
+
+| 项 | 值 | 作用 |
+|----|-----|------|
+| 启动时 pull | 开 | 打开库先拉远程 |
+| 改文件后 commit | 开 | 停止编辑后自动提交 |
+| 自动 commit 间隔 | 10 分钟 | 定时备份 |
+| 自动 push 间隔 | 10 分钟 | **推送到 GitHub → 触发 Pages 构建** |
+| 自动 pull 间隔 | 30 分钟 | 多设备同步 |
+| push 前 pull | 开 | 减少冲突 |
+
+**首次使用：** 设置 → 社区插件 → 启用 **Git**。执行一次 **Push**，用 GitHub 用户名 + Fine-grained Token 完成认证。
+
+**写作位置：** 只改 `fulcrum/` 下的 md；`_posts` 已迁至 [dev2hedge](https://github.com/AlphaVeteran/dev2hedge)。
+
 ### 方式 A：新建笔记
 
 用 **Fulcrum博文模板** 新建，保存到 `fulcrum/`。
