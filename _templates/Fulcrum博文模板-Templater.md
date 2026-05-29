@@ -1,8 +1,16 @@
+<%*
+/* 已有 permalink 则不再插入，避免重复 */
+const fm = tp.frontmatter;
+if (fm && fm.permalink) {
+  tR = "";
+  return;
+}
+-%>
 ---
 layout: fulcrum-post
-title: {{title}}
+title: <% tp.file.title %>
 permalink: /fulcrum/your-english-slug/
-date: {{date:YYYY-MM-DD}}
+date: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - 随笔
 keywords:

@@ -25,7 +25,7 @@
 
 ### 方式 A：新建笔记
 
-用 **Fulcrum博文模板** 新建，保存到 `fulcrum/`。
+在 `fulcrum/` 下**新建**笔记时，Templater 会自动套用 **Fulcrum博文模板-Templater**（完整 front matter + 写作说明）。
 
 ### 方式 B：拷贝已有 md（你的习惯）
 
@@ -39,7 +39,7 @@
 5. `title` 可省略（默认用文件名）；`layout` 不必写（`_config.yml` 已自动指定）
 6. 同步到 GitHub 的 `main` 分支
 
-### 方式 C：Templater 文件夹模板（拷贝后自动加头）
+### 方式 C：Templater 文件夹模板（已预配置）
 
 **前提：** 安装社区插件 [Templater](https://github.com/SilentVoid13/Templater)，并启用。
 
@@ -58,34 +58,34 @@
 | 字段 | 值 |
 |------|-----|
 | Folder | `fulcrum`（若 vault 根就是本仓库，只写文件夹名即可） |
-| Template | `Fulcrum前置元数据-Templater` |
+| Template | `Fulcrum博文模板-Templater` |
 
-保存后，在 Obsidian **文件列表**里于 `fulcrum/` 下**新建**笔记，或把仓库内笔记**拖进** `fulcrum/`，文首会自动插入 YAML（已有 `permalink` 的会跳过，见模板内判断）。
+保存后，在 Obsidian **文件列表**里于 `fulcrum/` 下**新建**笔记，会自动插入完整博文结构（front matter + 说明段落）；已有 `permalink` 的文件会跳过（见模板内判断）。从 Finder **拷贝已有正文**的 md 进 `fulcrum/` 时，仍建议手动插 **Fulcrum前置元数据**（见方式 B）。
 
 #### 3. 从 Finder 拷贝 md 时
 
 Obsidian 已打开该仓库时，把 `.md` 拷进 `fulcrum/` 后：
 
 1. 在 Obsidian 左侧点一下该新文件（让 Obsidian 完成索引）
-2. 若未自动插入：打开文件 → `Cmd+P` → **Templater: Replace templates in the active file**（或你绑定的快捷键）
+2. 打开文件 → `Cmd+P` → **插入模板** → 选 **Fulcrum前置元数据**（勿用 Templater 替换，否则会套上完整博文说明段）
 
-更稳的做法：先在 Obsidian 里 `fulcrum/` 下新建空笔记（会自动带头）→ 再把正文粘贴进去。
+更稳的做法：先在 Obsidian 里 `fulcrum/` 下新建空笔记（会自动带头）→ 再把正文粘贴进去，删掉说明段。
 
 #### 4. 与「核心插件 · 模板」的关系
 
-- **Templater 文件夹模板**：负责 `fulcrum/` 自动加头 → 用 `Fulcrum前置元数据-Templater.md`
-- **核心模板 · 插入模板**：手动插入 → 仍用 `Fulcrum前置元数据.md`（`{{date}}` 语法）
+- **Templater 文件夹模板**：`fulcrum/` 下**新建** → 用 `Fulcrum博文模板-Templater.md`（完整结构）
+- **核心模板 · 插入模板**：拷贝旧文后手动加头 → 用 `Fulcrum前置元数据.md`（`{{date}}` 语法）
 
 两套可并存，不要给「默认模板」指定 Fulcrum。
 
-## 两个 Fulcrum 模板会冲突吗？
+## 两个模板会冲突吗？
 
-**一般不会。** 它们不会自动叠加，只有你插入时才会写入文件。
+**一般不会。** 各管一种场景，不会自动叠加。
 
 | 模板 | 何时用 |
 |------|--------|
-| **Fulcrum博文模板** | 在 `fulcrum/` **新建**一篇空笔记 |
-| **Fulcrum前置元数据** | 已写好正文、**拷贝进** `fulcrum/` 后，在文首插入 |
+| **Fulcrum博文模板-Templater** | 在 `fulcrum/` **新建**笔记（Templater 自动） |
+| **Fulcrum前置元数据** | 已写好正文、**拷贝进** `fulcrum/` 后，文首手动「插入模板」 |
 
 避免搞混的三条规则：
 
@@ -93,10 +93,10 @@ Obsidian 已打开该仓库时，把 `.md` 拷进 `fulcrum/` 后：
    设置 → 模板 →「模板位置」指到 `_templates` 即可；**默认模板**留空，或继续用 **Jekyll模板**（给 `_posts` 用）。否则在仓库根目录新建笔记也会套上 Fulcrum 头。
 
 2. **拷贝旧文后只插「前置元数据」**  
-   若误插了「博文模板」，会多一段示例正文，删掉即可；若已有 `---` 头，不要插第二次。
+   若已在 `fulcrum/` 新建并自动套了博文模板，说明段删掉即可；若已有 `---` 头，不要插第二次。
 
 3. **Templater 只绑一个文件夹模板**  
-   若用 Templater 的「文件夹模板」，只让 `fulcrum/` 绑定 **Fulcrum前置元数据**，不要同时绑「博文模板」。
+   `fulcrum/` 已绑定 **Fulcrum博文模板-Templater**（新建用）；不要改成同时绑「博文模板」和「前置元数据」。
 
 **自检：** 文首只有一对 `---`，且含 `permalink` 与 `date`；正文里没有模板里的「在此开始写作」等说明字，即表示没插错。
 
